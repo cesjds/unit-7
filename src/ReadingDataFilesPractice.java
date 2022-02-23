@@ -12,7 +12,7 @@ public class ReadingDataFilesPractice {
 
     public static void readingFilesOne() {
         try {
-            Scanner inFile = new Scanner(new File("Inventory.txt"));
+            Scanner inFile = new Scanner(new File("data/Inventory.txt"));
             String item;
             int numberOnHand;
             double price;
@@ -34,7 +34,7 @@ public class ReadingDataFilesPractice {
 
     public static void readingFilesTwo() {
         try {
-            Scanner inFile = new Scanner(new File("Numbers.txt"));
+            Scanner inFile = new Scanner(new File("data/Numbers.txt"));
             int iNum;
             double dNum;
             System.out.println("Numbers.txt:");
@@ -54,7 +54,7 @@ public class ReadingDataFilesPractice {
 
     public static void readingFilesThree() {
         try {
-            Scanner inFile = new Scanner(new File("Inventory2.txt"));
+            Scanner inFile = new Scanner(new File("data/Inventory2.txt"));
             String line;
             String[] data;
             System.out.println("Inventory2.txt:");
@@ -78,7 +78,7 @@ public class ReadingDataFilesPractice {
         int[] numberOnHand = new int[3];
         double[] price = new double[3];
         try {
-            Scanner inFile = new Scanner(new File("Inventory.txt"));
+            Scanner inFile = new Scanner(new File("data/Inventory.txt"));
 
             System.out.println("Inventory.txt:");
 
