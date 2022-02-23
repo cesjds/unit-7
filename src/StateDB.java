@@ -22,20 +22,25 @@ import javax.swing.JTextArea;
 
 public class StateDB
 {
+    public static void main(String[]args)
+    {
+        String[][] states = new String[50][5];
+        print(states);
+    }
 
     public static void print(String[][] states)
     {
         JTextArea area = new JTextArea();
         //append column headings here
-        String name, capital, flower, bird, pop;
+        String name = "State", capital = "Capital", flower = "Flower", bird = "Bird", pop = "Pop";
         for (int i=0; i<states.length; i++) {
             //adjust column sizes here
             area.append(name+capital+flower+bird+pop+"\n");
         }
 
-        area.setBackground(new Color(255,250,205));
-        area.setForeground(new Color(0,0,0));
-        area.setFont(new Font("Consolas", Font.PLAIN, 15));
+        area.setBackground(new Color(51, 51, 51));
+        area.setForeground(new Color(255, 255, 255));
+        area.setFont(new Font("SF Pro", Font.PLAIN, 15));
         // how many rows will show at one time
         area.setRows(35);
         // how many columns (1 char) will show at one time
