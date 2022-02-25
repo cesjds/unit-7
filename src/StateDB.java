@@ -1,5 +1,8 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -12,6 +15,7 @@ import javax.swing.JTextArea;
  * database. Use the answer key I've attached to this assignment.
  * The data in states.txt is in the following order:
  *		state name
+ *              state capital
  *		state flower
  *		state bird
  *		state population (I think in 10 thousands)
@@ -20,32 +24,55 @@ import javax.swing.JTextArea;
  *
  *******************************************************************/
 
-public class StateDB
-{
-    public static void main(String[]args)
-    {
+public class StateDB {
+    public static void main(String[] args) {
         String[][] states = new String[50][5];
         print(states);
     }
 
-    public static void print(String[][] states)
-    {
+    public static void print(String[][] states) {
+        String name, capital, flower, bird, pop;
         JTextArea area = new JTextArea();
         //append column headings here
-        String name = "State", capital = "Capital", flower = "Flower", bird = "Bird", pop = "Pop";
-        for (int i=0; i<states.length; i++) {
-            //adjust column sizes here
-            area.append(name+capital+flower+bird+pop+"\n");
+        Scanner inFile = null;
+        try {
+            inFile = new Scanner(new File("states.txt"));
+            while(inFile.hasNext()){
+                name = inFile.nextLine();
+                System.out.print(name + "\t");
+                capital = inFile.nextLine();
+                System.out.print(capital + "\t");
+                flower = inFile.nextLine();
+                System.out.println(flower);
+                bird = inFile.nextLine();
+                pop = inFile.nextLine();
+
+                for (int i=0; i<states.length; i++) {
+                    //adjust column sizes here
+                    area.append(name+capital+flower+bird+pop+"\n");
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
 
-        area.setBackground(new Color(51, 51, 51));
-        area.setForeground(new Color(255, 255, 255));
-        area.setFont(new Font("SF Pro", Font.PLAIN, 15));
+
+        area.setBackground(new Color(255, 250, 205));
+        area.setForeground(new Color(0, 0, 0));
+        area.setFont(new Font("Consolas", Font.PLAIN, 15));
         // how many rows will show at one time
         area.setRows(35);
         // how many columns (1 char) will show at one time
         area.setColumns(115);
         JScrollPane pane = new JScrollPane(area);
-        JOptionPane.showMessageDialog(null,pane);
+        JOptionPane.showMessageDialog(null, pane);
+
+    }
+
+    public static void print(){
+        for(int i = 0; i <50; i++){
+            for(int z = 0; z < 5; z++){
+        }
+
     }
 }
