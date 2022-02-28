@@ -7,14 +7,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 /********************************************************************
- * Written by: Yoav Amit
+ * Written by: Yoav
  *
  * ASSIGNMENT:  Write a program that reads the data from states.txt
  * into a 2-D array. Modify the print method I give you to print your
  * database. Use the answer key I've attached to this assignment.
  * The data in states.txt is in the following order:
  *		state name
- *      state capital
+ *              state capital
  *		state flower
  *		state bird
  *		state population (I think in 10 thousands)
@@ -34,28 +34,32 @@ public class StateDB
     {
         JTextArea area = new JTextArea();
         //append column headings here
-        String name = "State", capital = "Capital", flower = "Flower", bird = "Bird", pop = "Pop";
+        String name = "name", capital = "capital", flower = "flower", bird = "bird", pop = "population";
 
-        try{
-            Scanner inFile = new Scanner(new File("data/states.txt"));
-            while (inFile.hasNext()) {
-                name = inFile.nextLine() + "\t";
-                capital = inFile.nextLine() + "\t";
-                flower = inFile.nextLine() + "\t";
-                bird = inFile.nextLine() + "\t";
-                pop = inFile.nextLine() + "\t";
-            }
-            inFile.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        for (int i=0; i<states.length; i++) {
-            //adjust column sizes here
+        for (int i=0; i<states.length; i++)
+        {
             area.setColumns(5);
             area.setRows(50);
-            area.append(name+capital+flower+bird+pop+"\n");
+            //adjust column sizes here
+            try {
+                Scanner inFile = new Scanner(new File("data/states.txt"));
+                while (inFile.hasNext()) {
+                    name = inFile.nextLine();
+                    capital = inFile.nextLine();
+                    flower = inFile.nextLine();
+                    bird = inFile.nextLine();
+                    pop = inFile.nextLine();
+                    area.append(name+capital+flower+bird+pop+"\n");
+                }
+                inFile.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+
+
+
+
 
         area.setBackground(new Color(255,250,205));
         area.setForeground(new Color(0,0,0));
@@ -68,3 +72,4 @@ public class StateDB
         JOptionPane.showMessageDialog(null,pane);
     }
 }
+
