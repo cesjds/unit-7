@@ -9,55 +9,55 @@ public class StateDB
 
         String states[][] = new String[50][5];
         fillAray(states);
-        printArray(states);
 
     }
 
     public static String[][] fillAray(String[][] states)
     {
+
+        JTextArea area = new JTextArea();
+        area.setColumns(5);
+        area.setRows(50);
+
+
         String name = "name", capital = "capital", flower = "flower", bird = "bird", pop = "population";
+
+        int spaces = 25;
+        int spacesAdd = 0;
+        String spacesAdded = "";
+
         try {
             Scanner inFile = new Scanner(new File("data/states.txt"));
 
             while (inFile.hasNext()) {
-                for(int r = 0; r < 50; r++)
+                for(int r = 0; r < states.length; r++)
                 {
-                    for (int c = 0; c < 5; c++)
-                    {
-                        states[r][c] = inFile.nextLine();
-                    }
+                    name = inFile.nextLine();
+                    spacesAdd = spaces - states[r][0].length();
+                    for (int a = 0; a < spacesAdd; a++)
+                        name += " ";
+                    capital = inFile.nextLine();
+                    spacesAdd = spaces - states[r][1].length();
+                    for (int a = 0; a < spacesAdd; a++)
+                        capital += " ";
+                    flower = inFile.nextLine();
+                    spacesAdd = spaces - states[r][2].length();
+                    for (int a = 0; a < spacesAdd; a++)
+                        flower += " ";
+                    bird = inFile.nextLine();
+                    spacesAdd = spaces - states[r][3].length();
+                    for (int a = 0; a < spacesAdd; a++)
+                        bird += " ";
+                    pop = inFile.nextLine();
+                    spacesAdd = spaces - states[r][4].length();
+                    for (int a = 0; a < spacesAdd; a++)
+                        pop += " ";
+                    area.append(name+capital+flower+bird+pop+"\n");
                 }
             }
             inFile.close();
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        return states;
-    }
-
-    public static void printArray(String states[][])
-    {
-        JTextArea area = new JTextArea();
-        area.setColumns(5);
-        area.setRows(50);
-
-        int spaces = 50;
-        int spacesAdd = 0;
-
-        for(int r = 0; r < 50; r++)
-        {
-            for (int c = 0; c < 5; c++)
-            {
-                spacesAdd = spaces - states[r][c].length();
-                area.append(states[r][c]);
-
-                for (int s = 0; s < spacesAdd; s++)
-                {
-                    area.append(" ");
-                }
-
-            }
-            area.append("\n");
         }
 
         area.setBackground(new Color(255,250,205));
@@ -70,7 +70,6 @@ public class StateDB
         JScrollPane pane = new JScrollPane(area);
         JOptionPane.showMessageDialog(null,pane);
 
+        return states;
     }
-
-
 }
