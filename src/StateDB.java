@@ -36,6 +36,11 @@ public class StateDB
         //append column headings here
         String name = "name", capital = "capital", flower = "flower", bird = "bird", pop = "population";
 
+        for (int r=0; r<states.length; i++)
+        {
+            for (int c=0 \;)
+        }
+
         for (int i=0; i<states.length; i++)
         {
             area.setColumns(5);
