@@ -1,70 +1,64 @@
-import java.awt.Color;
-import java.awt.Font;
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-
-/********************************************************************
- * Written by: Yoav
- *
- * ASSIGNMENT:  Write a program that reads the data from states.txt
- * into a 2-D array. Modify the print method I give you to print your
- * database. Use the answer key I've attached to this assignment.
- * The data in states.txt is in the following order:
- *		state name
- *              state capital
- *		state flower
- *		state bird
- *		state population (I think in 10 thousands)
- *
- * HAND IN:  Let me see your database print on your monitor.
- *
- *******************************************************************/
 
 public class StateDB
 {
     public static void main(String[] args) {
+
         String states[][] = new String[50][5];
-        print(states);
+        fillAray(states);
+        printArray(states);
+
     }
 
-    public static void print(String[][] states)
+    public static String[][] fillAray(String[][] states)
+    {
+        String name = "name", capital = "capital", flower = "flower", bird = "bird", pop = "population";
+        try {
+            Scanner inFile = new Scanner(new File("data/states.txt"));
+
+            while (inFile.hasNext()) {
+                for(int r = 0; r < 50; r++)
+                {
+                    for (int c = 0; c < 5; c++)
+                    {
+                        states[r][c] = inFile.nextLine();
+                    }
+                }
+            }
+            inFile.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return states;
+    }
+
+    public static void printArray(String states[][])
     {
         JTextArea area = new JTextArea();
-        //append column headings here
-        String name = "name", capital = "capital", flower = "flower", bird = "bird", pop = "population";
+        area.setColumns(5);
+        area.setRows(50);
 
-        for (int r=0; r<states.length; i++)
-        {
-            for (int c=0 \;)
-        }
+        int spaces = 50;
+        int spacesAdd = 0;
 
-        for (int i=0; i<states.length; i++)
+        for(int r = 0; r < 50; r++)
         {
-            area.setColumns(5);
-            area.setRows(50);
-            //adjust column sizes here
-            try {
-                Scanner inFile = new Scanner(new File("data/states.txt"));
-                while (inFile.hasNext()) {
-                    name = inFile.nextLine();
-                    capital = inFile.nextLine();
-                    flower = inFile.nextLine();
-                    bird = inFile.nextLine();
-                    pop = inFile.nextLine();
-                    area.append(name+capital+flower+bird+pop+"\n");
+            for (int c = 0; c < 5; c++)
+            {
+                spacesAdd = spaces - states[r][c].length();
+                area.append(states[r][c]);
+
+                for (int s = 0; s < spacesAdd; s++)
+                {
+                    area.append(" ");
                 }
-                inFile.close();
-            } catch (Exception e) {
-                e.printStackTrace();
+
             }
+            area.append("\n");
         }
-
-
-
-
 
         area.setBackground(new Color(255,250,205));
         area.setForeground(new Color(0,0,0));
@@ -75,6 +69,8 @@ public class StateDB
         area.setColumns(115);
         JScrollPane pane = new JScrollPane(area);
         JOptionPane.showMessageDialog(null,pane);
-    }
-}
 
+    }
+
+
+}
