@@ -62,7 +62,7 @@ public class StateDB
         //append column headings here
         String name = "name", capital = "capital", flower = "flower", bird = "bird", pop = "population";
 
-        int spaces[] = new int[]{30, 30, 30, 30};
+        int spaces[] = new int[]{22, 18, 30, 30};
 
         for (int i=0; i<states.length; i++) {
 
