@@ -27,7 +27,7 @@ public class StateDB
 {
     public static void main(String[] args)
     {
-        String states[][] = new String[50][5];
+        String states[][] = new String[51][5];
 
         fillAray(states);
         print(states);
@@ -40,7 +40,7 @@ public class StateDB
 
             while (inFile.hasNext())
             {
-                for (int r = 0; r < 50; r++)
+                for (int r = 0; r < 51; r++)
                 {
                     for (int c = 0; c < 5; c++)
                     {
