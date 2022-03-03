@@ -162,20 +162,21 @@ public class StateDB
     public static void searchState(String states[][]){
         String state = JOptionPane.showInputDialog("What state would you like to search for?");
 
-        for (int r = 0; r < 51; r++)
-        {
-            for (int c = 0; c < 5; c++)
-            {
-                if (state == states[r][c])
-                {
-                    break;
-                }
-            }
+        int r = 0;
+
+        while (state != states[r][0]){
+            r++;
+            state = states[r][0];
         }
 
         String message = "";
+        message += "STATE: " + state + "\n";
+        message += "CAPITAL: " + states[r][1] + "\n";
+        message += "FLOWER: " + states[r][2] + "\n";
+        message += "BIRD: " + states[r][3] + "\n";
+        message += "POPULATION: " + states[r][4] + "\n";
 
-
+        JOptionPane.showMessageDialog(null, message);
     }
     public static void searchCapital(){
         String capital = JOptionPane.showInputDialog("What capital would you like to search for?");
