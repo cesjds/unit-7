@@ -21,7 +21,31 @@ import javax.swing.JTextArea;
  *
  * HAND IN:  Let me see your database print on your monitor.
  *
- *******************************************************************/
+ *
+ * ASSIGNMENT: Add a search method to your StateDB program that does
+ * 	the following:
+ *
+ * search:  should ask the user what field they want to search
+ * 	(using buttons) and then call one of three search methods:
+ *
+ * 	searchForState - should ask for the state to search for and
+ * 		use a binary search to find the state and print the data
+ * 		for that state.
+ * 	searchForPopulation - should ask for a low and a high population
+ * 		to search for and use a sequential search to print the data
+ * 		for all states with populations in that range in one JOP
+ * 		window.
+ *  searchForBirdFlower - should ask for the bird or flower to
+ *  	search for and use a sequential search to print all states
+ *  	with that bird or flower in one JOP window.  You should only
+ *  	have one set of search code that searches for either one.
+ *
+ * For all 3 searches if the search data isn't found you should print
+ * 		an appropriate message.  Case shouldn't matter in your search.
+ *
+ * HAND IN: Copy and paste your code to Schoology and submit!
+ *
+ ********************************************************************/
 
 public class StateDB
 {
@@ -30,7 +54,24 @@ public class StateDB
         String states[][] = new String[51][5];
 
         fillAray(states);
-        print(states);
+
+        String message = "";
+        message += "What do you want to do?";
+        String[] buttons = {"Print",
+                            "Search",
+                            "Quit"};
+
+        int choice=JOptionPane.showOptionDialog
+                (null, message, "Choices",
+                        0, 3, null, buttons, null);
+
+        switch (choice)
+        {
+            case 0: print(states); break;
+            case 1: search(states); break;
+            case 2: System.exit(0); break;
+            default: System.exit(0);
+        }
     }
 
     public static String[][] fillAray(String states[][])
@@ -45,7 +86,6 @@ public class StateDB
                     for (int c = 0; c < 5; c++)
                     {
                         states[r][c] = inFile.nextLine();
-
                     }
                 }
             }
@@ -65,7 +105,6 @@ public class StateDB
         int spaces[] = new int[]{22, 18, 30, 30};
 
         for (int i=0; i<states.length; i++) {
-
             name = states[i][0];
             capital = states[i][1];
             flower = states[i][2];
@@ -93,5 +132,62 @@ public class StateDB
         area.setColumns(115);
         JScrollPane pane = new JScrollPane(area);
         JOptionPane.showMessageDialog(null,pane);
+    }
+
+    public static void search(String states[][])
+    {
+        String message = "";
+        message += "What do you want to search for?";
+        String[] buttons = {"State Name",
+                            "Capital",
+                            "Flower",
+                            "Bird",
+                            "Population"};
+
+        int choice=JOptionPane.showOptionDialog
+                (null, message, "Choices",
+                        0, 3, null, buttons, null);
+
+        switch(choice)
+        {
+            case 0: searchState(states); break;
+            case 1: searchCapital(); break;
+            case 2: searchFlower(); break;
+            case 3: searchBird(); break;
+            case 4: searchPopulation(); break;
+            default: searchState(states);
+        }
+    }
+
+    public static void searchState(String states[][]){
+        String state = JOptionPane.showInputDialog("What state would you like to search for?");
+
+        for (int r = 0; r < 51; r++)
+        {
+            for (int c = 0; c < 5; c++)
+            {
+                if (state == states[r][c])
+                {
+                    break;
+                }
+            }
+        }
+
+        String message = "";
+
+
+    }
+    public static void searchCapital(){
+        String capital = JOptionPane.showInputDialog("What capital would you like to search for?");
+
+    }
+    public static void searchFlower(){
+
+    }
+    public static void searchBird(){
+
+    }
+    public static void searchPopulation(){
+
     }
 }
