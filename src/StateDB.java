@@ -49,12 +49,12 @@ import javax.swing.JTextArea;
 
 public class StateDB
 {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         String states[][] = new String[51][5];
 
         openWindow(fillAray(states));
     }
-
 
     public static void openWindow(String states[][])
     {
@@ -103,9 +103,20 @@ public class StateDB
     {
         JTextArea area = new JTextArea();
         //append column headings here
-        String name = "name", capital = "capital", flower = "flower", bird = "bird", pop = "population";
-
         int spaces[] = new int[]{22, 18, 30, 30};
+
+        String name = "NAME", capital = "CAPITAL", flower = "FLOWER", bird = "BIRD", pop = "POPULATION";
+
+        while(name.length() <= spaces[0])
+            name += " ";
+        while(capital.length() <= spaces[1])
+            capital += " ";
+        while(flower.length() <= spaces[2])
+            flower += " ";
+        while(bird.length() <= spaces[3])
+            bird += " ";
+
+        area.append(name+capital+flower+bird+pop+"\n\n");
 
         for (int i=0; i<states.length; i++) {
             name = states[i][0];
@@ -135,6 +146,8 @@ public class StateDB
         area.setColumns(115);
         JScrollPane pane = new JScrollPane(area);
         JOptionPane.showMessageDialog(null,pane);
+
+        openWindow(states);
     }
 
     public static void search(String states[][])
@@ -162,7 +175,8 @@ public class StateDB
         }
     }
 
-    public static void searchState(String states[][]){
+    public static void searchState(String states[][])
+    {
         String state = JOptionPane.showInputDialog("What state would you like to search for?");
 
         int r = 0;
@@ -173,7 +187,7 @@ public class StateDB
         }
 
         String message = "";
-        message += "Here is the information I found for " + state + ":" + "\n\n";
+        message += "Here is the information for " + state + ":" + "\n\n";
         message += "state name: " + states[r][0] + "\n";
         message += "state capital: " + states[r][1] + "\n";
         message += "state flower: " + states[r][2] + "\n";
@@ -183,7 +197,9 @@ public class StateDB
         JOptionPane.showMessageDialog(null, message);
         openWindow(states);
     }
-    public static void searchCapital(String states[][]){
+
+    public static void searchCapital(String states[][])
+    {
         String capital = JOptionPane.showInputDialog("What capital would you like to search for?");
 
         int r = 0;
@@ -194,7 +210,7 @@ public class StateDB
         }
 
         String message = "";
-        message += "Here is the information I found for " + capital + ":" + "\n\n";
+        message += "Here is the information for " + capital + ":" + "\n\n";
         message += "state name: " + states[r][0] + "\n";
         message += "state capital: " + states[r][1] + "\n";
         message += "state flower: " + states[r][2] + "\n";
@@ -204,6 +220,7 @@ public class StateDB
         JOptionPane.showMessageDialog(null, message);
         openWindow(states);
     }
+
     public static void searchFlower(){
 
     }
