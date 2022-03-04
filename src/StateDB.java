@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -20,7 +21,6 @@ import javax.swing.JTextArea;
  *		state population (I think in 10 thousands)
  *
  * HAND IN:  Let me see your database print on your monitor.
- *
  *
  * ASSIGNMENT: Add a search method to your StateDB program that does
  * 	the following:
@@ -168,8 +168,8 @@ public class StateDB
         {
             case 0: searchState(states); break;
             case 1: searchCapital(states); break;
-            case 2: searchFlower(); break;
-            case 3: searchBird(); break;
+            case 2: searchFlower(states); break;
+            case 3: searchBird(states); break;
             case 4: searchPopulation(); break;
             default: searchState(states);
         }
@@ -221,10 +221,31 @@ public class StateDB
         openWindow(states);
     }
 
-    public static void searchFlower(){
+    public static void searchFlower(String states[][])
+    {
+        String flower = JOptionPane.showInputDialog("What flower would you like to search for?");
 
+        int r = 0;
+
+        ArrayList<String> flowerStates = new ArrayList<String>();
+
+        for (int i = 0; i < 51; i++)
+        {
+            if (flower.equalsIgnoreCase(states[r][2]))
+                flowerStates.add(0, states[r][2]);
+        }
+
+        String message = "";
+        message += "Here are all the states who have " + flower + " as their state flower:" + "\n\n";
+
+        for (int i = 0; i < flowerStates.size(); i++)
+            message += flowerStates.get(i) + "\n";
+
+        JOptionPane.showMessageDialog(null, message);
+        openWindow(states);
     }
-    public static void searchBird(){
+    public static void searchBird(String states[][])
+    {
 
     }
     public static void searchPopulation(){
