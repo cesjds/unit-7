@@ -49,17 +49,20 @@ import javax.swing.JTextArea;
 
 public class StateDB
 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         String states[][] = new String[51][5];
 
-        fillAray(states);
+        openWindow(fillAray(states));
+    }
 
+
+    public static void openWindow(String states[][])
+    {
         String message = "";
         message += "What do you want to do?";
         String[] buttons = {"Print",
-                            "Search",
-                            "Quit"};
+                "Search",
+                "Quit"};
 
         int choice=JOptionPane.showOptionDialog
                 (null, message, "Choices",
@@ -170,13 +173,14 @@ public class StateDB
         }
 
         String message = "";
-        message += "STATE: " + state + "\n";
+        message += "STATE: " + states[r][0] + "\n";
         message += "CAPITAL: " + states[r][1] + "\n";
         message += "FLOWER: " + states[r][2] + "\n";
         message += "BIRD: " + states[r][3] + "\n";
         message += "POPULATION: " + states[r][4] + "\n";
 
         JOptionPane.showMessageDialog(null, message);
+        openWindow(states);
     }
     public static void searchCapital(String states[][]){
         String capital = JOptionPane.showInputDialog("What capital would you like to search for?");
@@ -196,7 +200,7 @@ public class StateDB
         message += "POPULATION: " + states[r][4] + "\n";
 
         JOptionPane.showMessageDialog(null, message);
-
+        openWindow(states);
     }
     public static void searchFlower(){
 
