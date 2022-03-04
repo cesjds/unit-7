@@ -151,7 +151,7 @@ public class StateDB
         switch(choice)
         {
             case 0: searchState(states); break;
-            case 1: searchCapital(); break;
+            case 1: searchCapital(states); break;
             case 2: searchFlower(); break;
             case 3: searchBird(); break;
             case 4: searchPopulation(); break;
@@ -164,9 +164,9 @@ public class StateDB
 
         int r = 0;
 
-        while (state != states[r][0]){
+        while (state.equalsIgnoreCase(states[r][0]) == false)
+        {
             r++;
-            state = states[r][0];
         }
 
         String message = "";
@@ -178,8 +178,24 @@ public class StateDB
 
         JOptionPane.showMessageDialog(null, message);
     }
-    public static void searchCapital(){
+    public static void searchCapital(String states[][]){
         String capital = JOptionPane.showInputDialog("What capital would you like to search for?");
+
+        int r = 0;
+
+        while (capital.equalsIgnoreCase(states[r][1]) == false)
+        {
+            r++;
+        }
+
+        String message = "";
+        message += "STATE: " + states[r][0] + "\n";
+        message += "CAPITAL: " + states[r][1] + "\n";
+        message += "FLOWER: " + states[r][2] + "\n";
+        message += "BIRD: " + states[r][3] + "\n";
+        message += "POPULATION: " + states[r][4] + "\n";
+
+        JOptionPane.showMessageDialog(null, message);
 
     }
     public static void searchFlower(){
