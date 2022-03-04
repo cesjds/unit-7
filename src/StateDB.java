@@ -173,11 +173,12 @@ public class StateDB
         }
 
         String message = "";
-        message += "STATE: " + states[r][0] + "\n";
-        message += "CAPITAL: " + states[r][1] + "\n";
-        message += "FLOWER: " + states[r][2] + "\n";
-        message += "BIRD: " + states[r][3] + "\n";
-        message += "POPULATION: " + states[r][4] + "\n";
+        message += "Here is the information I found for " + state + ":" + "\n\n";
+        message += "state name: " + states[r][0] + "\n";
+        message += "state capital: " + states[r][1] + "\n";
+        message += "state flower: " + states[r][2] + "\n";
+        message += "state bird: " + states[r][3] + "\n";
+        message += "state population: " + states[r][4] + "\n";
 
         JOptionPane.showMessageDialog(null, message);
         openWindow(states);
@@ -193,11 +194,12 @@ public class StateDB
         }
 
         String message = "";
-        message += "STATE: " + states[r][0] + "\n";
-        message += "CAPITAL: " + states[r][1] + "\n";
-        message += "FLOWER: " + states[r][2] + "\n";
-        message += "BIRD: " + states[r][3] + "\n";
-        message += "POPULATION: " + states[r][4] + "\n";
+        message += "Here is the information I found for " + capital + ":" + "\n\n";
+        message += "state name: " + states[r][0] + "\n";
+        message += "state capital: " + states[r][1] + "\n";
+        message += "state flower: " + states[r][2] + "\n";
+        message += "state bird: " + states[r][3] + "\n";
+        message += "state population: " + states[r][4] + "\n";
 
         JOptionPane.showMessageDialog(null, message);
         openWindow(states);
