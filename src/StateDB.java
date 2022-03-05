@@ -252,6 +252,9 @@ public class StateDB
     public static void searchBird(String states[][])
     {
         String bird = JOptionPane.showInputDialog("What bird would you like to search for?");
+
+        int r = 0;
+
     }
     public static void searchPopulation(){
 
