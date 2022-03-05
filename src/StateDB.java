@@ -255,6 +255,7 @@ public class StateDB
 
         int r = 0;
 
+        ArrayList<String>  birdStates = new ArrayList<String>();
     }
     public static void searchPopulation(){
 
