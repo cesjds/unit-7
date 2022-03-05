@@ -232,7 +232,12 @@ public class StateDB
         for (int i = 0; i < 51; i++)
         {
             if (flower.equalsIgnoreCase(states[r][2]))
+            {
                 flowerStates.add(0, states[r][2]);
+                r++;
+            }
+            else
+                r++;
         }
 
         String message = "";
@@ -246,7 +251,7 @@ public class StateDB
     }
     public static void searchBird(String states[][])
     {
-
+        String bird = JOptionPane.showInputDialog("What bird would you like to search for?");
     }
     public static void searchPopulation(){
 
