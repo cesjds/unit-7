@@ -267,6 +267,13 @@ public class StateDB
 
         String message = "";
         message += "Here are all the states who have " + bird + " as their state bird:" + "\n\n";
+
+        String birdAdded = "";
+
+        for (int i = 0; i < birdStates.size(); i++)
+            birdAdded = birdStates.get(i);
+            message += birdAdded.toString();
+
     }
     public static void searchPopulation(){
 
