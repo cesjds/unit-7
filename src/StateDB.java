@@ -256,6 +256,11 @@ public class StateDB
         int r = 0;
 
         ArrayList<String>  birdStates = new ArrayList<String>();
+
+        for (int i = 0; i < 51; i++)
+        {
+
+        }
     }
     public static void searchPopulation(){
 
