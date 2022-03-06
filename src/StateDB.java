@@ -259,7 +259,10 @@ public class StateDB
 
         for (int i = 0; i < 51; i++)
         {
-
+            if (bird.equalsIgnoreCase(states[r][3]))
+                birdStates.add(0, states[r][3]);
+            else
+                r++;
         }
     }
     public static void searchPopulation(){
