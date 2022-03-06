@@ -264,6 +264,9 @@ public class StateDB
             else
                 r++;
         }
+
+        String message = "";
+        message += "Here are all the states who have " + bird + " as their state bird:" + "\n\n";
     }
     public static void searchPopulation(){
 
