@@ -272,7 +272,11 @@ public class StateDB
 
         for (int i = 0; i < birdStates.size(); i++)
             birdAdded = birdStates.get(i);
-            message += birdAdded.toString();
+            message += birdAdded.toString() + "\n";
+
+        JOptionPane.showMessageDialog(null, message);
+        openWindow(states);
+
 
     }
     public static void searchPopulation(){
