@@ -279,11 +279,19 @@ public class StateDB
 
 
     }
-    public static void searchPopulation(){
+    public static void searchPopulation(String states[][]){
         String population = JOptionPane.showInputDialog("What population number would you like find?");
 
         int r = 0;
 
         ArrayList<String> populationStates = new ArrayList<String>();
+
+        for (int i = 0; i < 51; i++)
+        {
+            if (population.equalsIgnoreCase(states[r][4]))
+                populationStates.add(0, states[r][4]);
+            else
+                r++;
+        }
     }
 }
