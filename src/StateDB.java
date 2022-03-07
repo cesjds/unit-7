@@ -170,7 +170,7 @@ public class StateDB
             case 1: searchCapital(states); break;
             case 2: searchFlower(states); break;
             case 3: searchBird(states); break;
-            case 4: searchPopulation(); break;
+            case 4: searchPopulation(states); break;
             default: searchState(states);
         }
     }
@@ -233,7 +233,7 @@ public class StateDB
         {
             if (flower.equalsIgnoreCase(states[r][2]))
             {
-                flowerStates.add(0, states[r][2]);
+                flowerStates.add(0, states[r][0]);
                 r++;
             }
             else
@@ -249,6 +249,7 @@ public class StateDB
         JOptionPane.showMessageDialog(null, message);
         openWindow(states);
     }
+
     public static void searchBird(String states[][])
     {
         String bird = JOptionPane.showInputDialog("What bird would you like to search for?");
@@ -260,7 +261,7 @@ public class StateDB
         for (int i = 0; i < 51; i++)
         {
             if (bird.equalsIgnoreCase(states[r][3]))
-                birdStates.add(0, states[r][3]);
+                birdStates.add(0, states[r][0]);
             else
                 r++;
         }
@@ -279,6 +280,7 @@ public class StateDB
 
 
     }
+
     public static void searchPopulation(String states[][]){
         String population = JOptionPane.showInputDialog("What population number would you like find?");
 
@@ -289,12 +291,21 @@ public class StateDB
         for (int i = 0; i < 51; i++)
         {
             if (population.equalsIgnoreCase(states[r][4]))
-                populationStates.add(0, states[r][4]);
+                populationStates.add(0, states[r][0]);
             else
                 r++;
         }
 
         String message = "";
-        message += "Here are all the states who's population is " + population;
+        message += "Here are all the states who's population is " + population + "\n\n";
+
+        String populationAdded = "";
+
+        for (int i = 0; i < populationStates.size(); i++)
+            populationAdded = populationStates.get(i);
+        message += populationAdded.toString() + "\n";
+
+        JOptionPane.showMessageDialog(null, message);
+        openWindow(states);
     }
 }
