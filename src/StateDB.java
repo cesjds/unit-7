@@ -281,5 +281,7 @@ public class StateDB
     }
     public static void searchPopulation(){
         String population = JOptionPane.showInputDialog("What population number would you like find?");
+
+        int r = 0;
     }
 }
