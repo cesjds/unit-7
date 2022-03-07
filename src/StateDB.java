@@ -293,5 +293,8 @@ public class StateDB
             else
                 r++;
         }
+
+        String message = "";
+        message += "Here are all the states who's population is " + population;
     }
 }
