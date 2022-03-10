@@ -281,29 +281,41 @@ public class StateDB
 
     }
 
-    public static void searchPopulation(String states[][]){
-        String population = JOptionPane.showInputDialog("What population number would you like find?");
+    public static void searchPopulation(String states[][])
+    {
+        int lowPopulation = Integer.parseInt(JOptionPane.showInputDialog("Enter the minimum population"));
+        int highPopulation = Integer.parseInt(JOptionPane.showInputDialog("Enter the maximum population"));
 
         int r = 0;
+        int populationNumber = 0;
 
         ArrayList<String> populationStates = new ArrayList<String>();
 
         for (int i = 0; i < 51; i++)
         {
-            if (population.equalsIgnoreCase(states[r][4]))
-                populationStates.add(0, states[r][0]);
+            populationNumber = Integer.parseInt(states[r][4]);
+            if (populationNumber >= lowPopulation && populationNumber <= highPopulation) {
+                populationStates.add(states[r][0]);
+                r++;
+                }
             else
                 r++;
         }
 
         String message = "";
-        message += "Here are all the states who's population is " + population + "\n\n";
 
-        String populationAdded = "";
+        if (populationStates.size() == 0)
+            message += "Sorry, there were no matches for your data";
+        else {
+            message += "Here are all the states who's population is between " + lowPopulation + " and " + highPopulation + ":\n\n";
 
-        for (int i = 0; i < populationStates.size(); i++)
-            populationAdded = populationStates.get(i);
-        message += populationAdded.toString() + "\n";
+            String populationAdded = "";
+
+            for (int i = 0; i < populationStates.size(); i++) {
+                populationAdded = populationStates.get(i);
+                message += populationAdded.toString() + "\n";
+            }
+        }
 
         JOptionPane.showMessageDialog(null, message);
         openWindow(states);
