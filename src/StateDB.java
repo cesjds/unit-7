@@ -241,10 +241,15 @@ public class StateDB
         }
 
         String message = "";
-        message += "Here are all the states who have " + flower + " as their state flower:" + "\n\n";
 
-        for (int i = 0; i < flowerStates.size(); i++)
-            message += flowerStates.get(i) + "\n";
+        if (flowerStates.size() == 0)
+            message += "Sorry, there were no matches for your data";
+        else {
+            message += "Here are all the states who have " + flower + " as their state flower:" + "\n\n";
+
+            for (int i = 0; i < flowerStates.size(); i++)
+                message += flowerStates.get(i) + "\n";
+        }
 
         JOptionPane.showMessageDialog(null, message);
         openWindow(states);
@@ -267,18 +272,21 @@ public class StateDB
         }
 
         String message = "";
-        message += "Here are all the states who have " + bird + " as their state bird:" + "\n\n";
 
-        String birdAdded = "";
+        if (birdStates.size() == 0)
+            message += "Sorry, there were no matches for your data";
+        else {
+            message += "Here are all the states who have " + bird + " as their state bird:" + "\n\n";
 
-        for (int i = 0; i < birdStates.size(); i++)
-            birdAdded = birdStates.get(i);
+            String birdAdded = "";
+
+            for (int i = 0; i < birdStates.size(); i++)
+                birdAdded = birdStates.get(i);
             message += birdAdded.toString() + "\n";
+        }
 
         JOptionPane.showMessageDialog(null, message);
         openWindow(states);
-
-
     }
 
     public static void searchPopulation(String states[][])
