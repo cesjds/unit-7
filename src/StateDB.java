@@ -181,18 +181,27 @@ public class StateDB
 
         int r = 0;
 
+        ArrayList<String> stateStates = new ArrayList<String>();
+
         while (state.equalsIgnoreCase(states[r][0]) == false)
         {
             r++;
         }
 
+        stateStates.add(states[r][0]);
+
         String message = "";
-        message += "Here is the information for " + state + ":" + "\n\n";
-        message += "state name: " + states[r][0] + "\n";
-        message += "state capital: " + states[r][1] + "\n";
-        message += "state flower: " + states[r][2] + "\n";
-        message += "state bird: " + states[r][3] + "\n";
-        message += "state population: " + states[r][4] + "\n";
+
+        if(stateStates.size() == 0)
+            message += "Sorry, no matches were found.";
+        else {
+            message += "Here is the information for " + state + ":" + "\n\n";
+            message += "state name: " + states[r][0] + "\n";
+            message += "state capital: " + states[r][1] + "\n";
+            message += "state flower: " + states[r][2] + "\n";
+            message += "state bird: " + states[r][3] + "\n";
+            message += "state population: " + states[r][4] + "\n";
+        }
 
         JOptionPane.showMessageDialog(null, message);
         openWindow(states);
