@@ -188,17 +188,18 @@ public class StateDB
 //        }
 
 
-//        for (int i = 0; i < 51; i++)
-//        {
-//            if (!state.equalsIgnoreCase(states[r][0]))
-//            {
-//                r++;
-//            }
-//            else
-//                trueFalse = 1;
-//                break;
-//
-//        }
+        for (int i = 0; i < 51; i++)
+        {
+            if (!state.equalsIgnoreCase(states[r][0]))
+            {
+                r++;
+            }
+            else {
+                trueFalse = 1;
+                break;
+            }
+            break;
+        }
 
 
 
