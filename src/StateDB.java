@@ -180,20 +180,33 @@ public class StateDB
         String state = JOptionPane.showInputDialog("What state would you like to search for?");
 
         int r = 0;
+        int trueFalse = 0;
 
-        ArrayList<String> stateStates = new ArrayList<String>();
+//        while (state.equalsIgnoreCase(states[r][0]) == false)
+//        {
+//            r++;
+//        }
 
-        while (state.equalsIgnoreCase(states[r][0]) == false)
-        {
-            r++;
-        }
 
-        stateStates.add(states[r][0]);
+//        for (int i = 0; i < 51; i++)
+//        {
+//            if (!state.equalsIgnoreCase(states[r][0]))
+//            {
+//                r++;
+//            }
+//            else
+//                trueFalse = 1;
+//                break;
+//
+//        }
+
+
+
 
         String message = "";
 
-        if(stateStates.size() == 0)
-            message += "Sorry, no matches were found.";
+        if(r == 1)
+            message += "Sorry, no matches were found for your data";
         else {
             message += "Here is the information for " + state + ":" + "\n\n";
             message += "state name: " + states[r][0] + "\n";
