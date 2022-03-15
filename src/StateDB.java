@@ -182,24 +182,24 @@ public class StateDB
         int r = 0;
         int trueFalse = 0;
 
-//        while (state.equalsIgnoreCase(states[r][0]) == false)
-//        {
-//            r++;
-//        }
-
-
-        for (int i = 0; i < 51; i++)
+        while (state.equalsIgnoreCase(states[r][0]) == false)
         {
-            if (!state.equalsIgnoreCase(states[r][0]))
-            {
-                r++;
-            }
-            else {
-                trueFalse = 1;
-                break;
-            }
-            break;
+            r++;
         }
+
+
+//        for (int i = 0; i < 51; i++)
+//        {
+//            if (!state.equalsIgnoreCase(states[r][0]))
+//            {
+//                r++;
+//            }
+//            else {
+//                trueFalse = 1;
+//                break;
+//            }
+//            break;
+//        }
 
 
 
