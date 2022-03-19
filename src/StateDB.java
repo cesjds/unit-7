@@ -180,33 +180,25 @@ public class StateDB
         String state = JOptionPane.showInputDialog("What state would you like to search for?");
 
         int r = 0;
-        int trueFalse = 0;
+        ArrayList<String> stateStates = new ArrayList<String>();
 
-        while (state.equalsIgnoreCase(states[r][0]) == false)
+        for (int i = 0; i < 51; i++)
         {
-            r++;
+            if (state.equalsIgnoreCase(states[r][0]) == true) {
+                stateStates.add(states[r][0]);
+                break;
+            }
+            else {
+                if (r == 50)
+                    break;
+                else
+                    r++;
+            }
         }
-
-
-//        for (int i = 0; i < 51; i++)
-//        {
-//            if (!state.equalsIgnoreCase(states[r][0]))
-//            {
-//                r++;
-//            }
-//            else {
-//                trueFalse = 1;
-//                break;
-//            }
-//            break;
-//        }
-
-
-
 
         String message = "";
 
-        if(r == 1)
+        if(stateStates.size() == 0)
             message += "Sorry, no matches were found for your data";
         else {
             message += "Here is the information for " + state + ":" + "\n\n";
@@ -226,19 +218,34 @@ public class StateDB
         String capital = JOptionPane.showInputDialog("What capital would you like to search for?");
 
         int r = 0;
+        ArrayList<String> capitalStates = new ArrayList<String>();
 
-        while (capital.equalsIgnoreCase(states[r][1]) == false)
+        for (int i = 0; i < 51; i++)
         {
-            r++;
+            if (capital.equalsIgnoreCase(states[r][1]) == true) {
+                capitalStates.add(states[r][1]);
+                break;
+            }
+            else {
+                if (r == 50)
+                    break;
+                else
+                    r++;
+            }
         }
 
         String message = "";
-        message += "Here is the information for " + capital + ":" + "\n\n";
-        message += "state name: " + states[r][0] + "\n";
-        message += "state capital: " + states[r][1] + "\n";
-        message += "state flower: " + states[r][2] + "\n";
-        message += "state bird: " + states[r][3] + "\n";
-        message += "state population: " + states[r][4] + "\n";
+
+        if (capitalStates.size() == 0)
+            message += "Sorry, there were no matches for your data";
+        else {
+            message += "Here is the information for " + capital + ":" + "\n\n";
+            message += "state name: " + states[r][0] + "\n";
+            message += "state capital: " + states[r][1] + "\n";
+            message += "state flower: " + states[r][2] + "\n";
+            message += "state bird: " + states[r][3] + "\n";
+            message += "state population: " + states[r][4] + "\n";
+        }
 
         JOptionPane.showMessageDialog(null, message);
         openWindow(states);
