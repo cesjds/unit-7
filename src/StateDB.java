@@ -52,29 +52,21 @@ public class StateDB
     public static void main(String[] args)
     {
         String states[][] = new String[51][5];
-
         fillAray(states);
 
-        String message = "";
-        message += "What do you want to do?";
-        String[] buttons = {"Print",
-                            "Search",
-                            "Quit"};
-
-        int choice=JOptionPane.showOptionDialog
-                (null, message, "Choices",
-                        0, 3, null, buttons, null);
-
-        switch (choice)
-        {
-            case 0: print(states); break;
-            case 1: search(states); break;
-            case 2: System.exit(0); break;
-            default: System.exit(0);
-        }
+        int choice;
+        do {
+            choice = menu();
+            switch (choice)
+            {
+                case 0: print(states); break;
+                case 1: search(states); break;
+                case 2: System.exit(0); break;
+            }
+        }while (choice != 3);
     }
 
-    public static void openWindow(String states[][])
+    public static int menu()
     {
         String message = "";
         message += "What do you want to do?";
@@ -88,11 +80,11 @@ public class StateDB
 
         switch (choice)
         {
-            case 0: print(states); break;
-            case 1: search(states); break;
-            case 2: System.exit(0); break;
-            default: System.exit(0);
+            case 0: return 0;
+            case 1: return 1;
+            case 2: return 2;
         }
+        return choice;
     }
 
     public static String[][] fillAray(String states[][])
@@ -165,7 +157,7 @@ public class StateDB
         JScrollPane pane = new JScrollPane(area);
         JOptionPane.showMessageDialog(null,pane);
 
-        openWindow(states);
+        menu();
     }
 
     public static void search(String states[][])
@@ -228,7 +220,7 @@ public class StateDB
         }
 
         JOptionPane.showMessageDialog(null, message);
-        openWindow(states);
+        menu();
     }
 
     public static void searchCapital(String states[][])
@@ -266,7 +258,7 @@ public class StateDB
         }
 
         JOptionPane.showMessageDialog(null, message);
-        openWindow(states);
+        menu();
     }
 
     public static void searchFlower(String states[][])
@@ -300,7 +292,7 @@ public class StateDB
         }
 
         JOptionPane.showMessageDialog(null, message);
-        openWindow(states);
+        menu();
     }
 
     public static void searchBird(String states[][])
@@ -334,7 +326,7 @@ public class StateDB
         }
 
         JOptionPane.showMessageDialog(null, message);
-        openWindow(states);
+        menu();
     }
 
     public static void searchPopulation(String states[][])
@@ -374,6 +366,6 @@ public class StateDB
         }
 
         JOptionPane.showMessageDialog(null, message);
-        openWindow(states);
+        menu();
     }
 }
