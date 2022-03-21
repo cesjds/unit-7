@@ -52,7 +52,7 @@ public class StateDB
     public static void main(String[] args)
     {
         String states[][] = new String[51][5];
-        fillAray(states);
+        fillArray(states);
 
         int choice;
         do {
@@ -63,7 +63,8 @@ public class StateDB
                 case 1: search(states); break;
                 case 2: System.exit(0); break;
             }
-        }while (choice != 3);
+        } while (choice != 3);
+
     }
 
     public static int menu()
@@ -71,17 +72,17 @@ public class StateDB
         String message = "";
         message += "What do you want to do?";
         String[] buttons = {"Print",
-                "Search",
-                "Quit"};
+                            "Search",
+                            "Quit"};
 
-        int choice=JOptionPane.showOptionDialog
+        int choice = JOptionPane.showOptionDialog
                 (null, message, "Choices",
                         0, 3, null, buttons, null);
 
         return choice;
     }
 
-    public static String[][] fillAray(String states[][])
+    public static String[][] fillArray(String states[][])
     {
         try {
             Scanner inFile = new Scanner(new File("data/states.txt"));
@@ -150,8 +151,6 @@ public class StateDB
         area.setColumns(115);
         JScrollPane pane = new JScrollPane(area);
         JOptionPane.showMessageDialog(null,pane);
-
-        menu();
     }
 
     public static void search(String states[][])
@@ -214,7 +213,6 @@ public class StateDB
         }
 
         JOptionPane.showMessageDialog(null, message);
-        menu();
     }
 
     public static void searchCapital(String states[][])
@@ -252,7 +250,6 @@ public class StateDB
         }
 
         JOptionPane.showMessageDialog(null, message);
-        menu();
     }
 
     public static void searchFlower(String states[][])
@@ -286,7 +283,6 @@ public class StateDB
         }
 
         JOptionPane.showMessageDialog(null, message);
-        menu();
     }
 
     public static void searchBird(String states[][])
@@ -320,7 +316,6 @@ public class StateDB
         }
 
         JOptionPane.showMessageDialog(null, message);
-        menu();
     }
 
     public static void searchPopulation(String states[][])
@@ -360,6 +355,5 @@ public class StateDB
         }
 
         JOptionPane.showMessageDialog(null, message);
-        menu();
     }
 }
