@@ -53,7 +53,25 @@ public class StateDB
     {
         String states[][] = new String[51][5];
 
-        openWindow(fillAray(states));
+        fillAray(states);
+
+        String message = "";
+        message += "What do you want to do?";
+        String[] buttons = {"Print",
+                            "Search",
+                            "Quit"};
+
+        int choice=JOptionPane.showOptionDialog
+                (null, message, "Choices",
+                        0, 3, null, buttons, null);
+
+        switch (choice)
+        {
+            case 0: print(states); break;
+            case 1: search(states); break;
+            case 2: System.exit(0); break;
+            default: System.exit(0);
+        }
     }
 
     public static void openWindow(String states[][])
@@ -253,7 +271,7 @@ public class StateDB
 
     public static void searchFlower(String states[][])
     {
-        String flower = JOptionPane.showInputDialog("What flower would you like to search for?");
+        String flower = JOptionPane.showInputDialog("What would you like to search for?");
 
         int r = 0;
 
