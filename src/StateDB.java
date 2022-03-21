@@ -78,12 +78,6 @@ public class StateDB
                 (null, message, "Choices",
                         0, 3, null, buttons, null);
 
-        switch (choice)
-        {
-            case 0: return 0;
-            case 1: return 1;
-            case 2: return 2;
-        }
         return choice;
     }
 
